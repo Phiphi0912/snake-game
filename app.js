@@ -1,8 +1,11 @@
 const express = require('express')
 const exphbs = require('express-handlebars')
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config()
+}
 
 const app = express()
-const port = 3000
+const port = process.env.PORT
 
 const routes = require('./routes/index')
 
