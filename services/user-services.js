@@ -1,5 +1,4 @@
 const bcrypt = require('bcryptjs')
-const req = require('express/lib/request')
 const { User } = require('../models')
 
 const userServices = {
