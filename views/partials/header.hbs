@@ -11,15 +11,20 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav ms-auto mb-2 mb-md-0">
-          <li class="nav-item d-inline-flex align-items-center">
-            <span class="text-white nav-link">Hi, {{ user.name }}</span>
+          <li class="nav-item d-inline-flex align-items-center me-3">
+            <span class="text-white nav-link">{{ user.name }} 歡迎回來</span>
           </li>
-          {{!-- <li class="nav-item d-inline-flex align-items-center">
-            <a href="/users/{{user.id}}"><button class="btn btn-outline-info my-sm-0 mx-2 my-2">Profile</button></a>
-          </li> --}}
-          <li class="nav-item">
-            <a href="/users/logout"><button class="btn btn-outline-success my-sm-0 my-2">Logout</button></a>
-          </li>
+          <ul class="nav nav-pills ms-3 me-5">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
+                aria-expanded="false"><i class="fas fa-user-astronaut fa-lg"></i></i></a>
+              <ul class="dropdown-menu">
+                <a class="dropdown-item" href="#">Profile</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="/users/logout">登出</a>
+              </ul>
+            </li>
+          </ul>
         </ul>
       </div>
       {{/if}}
