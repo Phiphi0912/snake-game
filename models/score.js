@@ -8,7 +8,7 @@ module.exports = (sequelize, DataTypes) => {
     tableName: 'Scores'
   });
   Score.associate = function(models) {
-    Reply.belongsTo(models.User, { foreignKey: 'UserId' })
+    Score.belongsTo(models.User, { foreignKey: 'UserId' })
   };
   return Score;
 };
