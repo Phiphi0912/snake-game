@@ -1,4 +1,4 @@
-const userServices =require('../services/user-services')
+const userServices = require('../services/user-services')
 
 const userController = {
   registerPage: (req, res) => {
@@ -17,8 +17,13 @@ const userController = {
     res.render('login')
   },
   login: (req, res) => {
-    req.flash('success_messages', '成功登入！')
+    req.flash('success_msg', '成功登入！')
     res.redirect('/home')
+  },
+  logout: (req, res) => {
+    req.flash('success_msg', '成功登出！')
+    req.logout()
+    res.redirect('/users/login')
   }
 }
 
