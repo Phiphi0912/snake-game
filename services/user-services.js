@@ -30,6 +30,15 @@ const userServices = {
     } catch (err) {
       next(err)
     }
+  },
+  getRecord: async (userId) => {
+    const records = await Score.findAll({
+      where: { userId },
+      raw: true,
+      nest: true
+    })
+
+    return records
   }
 }
 

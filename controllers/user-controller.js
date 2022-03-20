@@ -36,6 +36,16 @@ const userController = {
     } catch (err) {
       next(err)
     }
+  },
+  getRecord: async (req, res, next) => {
+    const userId = req.user.id
+    try {
+      const records = await userServices.getRecord(userId)
+      console.log(records)
+      res.render('score', { records: records })
+    } catch (err) {
+      next(err)
+    }
   }
 }
 

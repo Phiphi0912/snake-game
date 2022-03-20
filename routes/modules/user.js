@@ -13,4 +13,6 @@ router.get('/logout', userController.logout)
 
 router.post('/score', userController.saveScore)
 
+router.get('/record', userController.getRecord)
+
 module.exports = router

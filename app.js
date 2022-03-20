@@ -14,7 +14,7 @@ const port = process.env.PORT
 
 const routes = require('./routes/index')
 
-app.engine('hbs', exphbs({ extname: '.hbs', defaultLayout: "main" }));
+app.engine('hbs', exphbs({ extname: '.hbs', defaultLayout: "main", helpers: require('./helpers/hbs-helper') }));
 app.set('view engine', 'hbs');
 app.use(express.urlencoded({ extended: true }))
 

@@ -1,1 +1,29 @@
-<h1>score</h1>
+<div class="container mt-5" style="background-color: rgb(130, 190, 255);">
+  <div class="text-center">
+    <h2>
+      遊戲分數紀錄
+    </h2>
+  </div>
+  <div class="row mx-1 mt-3">
+    {{#if records}}
+    {{#each records}}
+    <ul class="list-group w-100">
+      <li class="list-group-item d-flex px-0 my-2 border-0">
+        <div class="col-8 d-flex align-items-center justify-content-between">
+          <div class="m-2 text-dark">
+            <h5 class="mb-1 ms-2"><i class="fas fa-trophy me-2"></i>分數：{{this.score}}</h5>
+          </div>
+          <div class="ml-2 text-dark">
+            <h5 class="d-block ms-2"><i class="fas fa-calendar-day me-2"></i>遊戲日期：{{dateFormat this.created_at}}</h5>
+          </div>
+        </div>
+      </li>
+    </ul>
+    {{/each}}
+    {{else}}
+    <div class="d-flex flex-column align-items-center mx-1 mt-4 p-5 bg-light rounded">
+      無遊玩紀錄
+    </div>
+    {{/if}}
+  </div>
+</div>
