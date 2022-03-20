@@ -1,6 +1,5 @@
 <div class="container mt-5">
   {{> message}}
-  <div id="user" data-id="{{userId}}"></div>
 
   <div class="d-flex justify-content-around">
     <div>
@@ -9,6 +8,11 @@
     <div class="d-flex">
       <h2>分數：</h2>
       <h2 id="score-id">0</h2>
+      <form action="/users/score" method="POST" class="ms-5">
+        <label for="score"></label>
+        <input type="text" id="score" name="score" style="display:none" value="">
+        <button id="score-btn" type="submit" class="btn btn-outline-success" style="display:none">儲存分數</button>
+      </form>
     </div>
   </div>
   <div class="text-center mt-5">
@@ -79,13 +83,17 @@
     if (snakeDead()) {
       gameOver()
       const endScore = document.querySelector('#score-id').innerText
-      const userId = document.querySelector('#user').dataset.id
+      const userScore = document.querySelector('#score')
+      userScore.setAttribute('value', endScore)
 
-      return Swal.fire({
+      Swal.fire({
         title: 'Game Over!',
-        text: 'Your snake is dead',
+        text: '右上角可選擇是否儲存此次分數',
         icon: 'warning',
       })
+
+      const scoreBtn = document.querySelector('#score-btn')
+      scoreBtn.removeAttribute("style")
     }
 
     if (snake.body[0].x === apple.x && snake.body[0].y === apple.y) {

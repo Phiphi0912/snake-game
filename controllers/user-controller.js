@@ -24,6 +24,18 @@ const userController = {
     req.flash('success_msg', '成功登出！')
     req.logout()
     res.redirect('/users/login')
+  },
+  saveScore: async (req, res, next) => {
+    const userId = req.user.id
+    const score = req.body.score
+    try {
+      await userServices.saveScore(userId, score)
+
+      req.flash('success_msg', '成功儲存分數!')
+      res.redirect('/home')
+    } catch (err) {
+      next(err)
+    }
   }
 }
 
